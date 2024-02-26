@@ -44,7 +44,7 @@ app.post("/sauce", (req, res) => {
     }
   });
 });
-app.post("/sauce", (req, res) => {
+app.post("/sn", (req, res) => {
   const mailOptions = {
     from: process.env.SENDER_MAIL,
     to: process.env.SN,
